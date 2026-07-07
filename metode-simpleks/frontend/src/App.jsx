@@ -217,7 +217,7 @@ export default function App() {
     setResult(null);
     setCurrentStep(0);
     try {
-      const res = await fetch('https://metode-simpleks-backend.vercel.app/calculate', {
+      const res = await fetch('https://metode-simpleks-backend.vercel.app/api/calculate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
