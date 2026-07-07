@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  /* Terracotta Earth Palette */
+  --bg-color: #FDF8F5; /* Warm milk cream background */
+  --panel-bg: #FFFFFF; /* Pure white card background */
+  --panel-border: rgba(62, 39, 35, 0.06);
+  --panel-border-hover: rgba(62, 39, 35, 0.12);
+  
+  --primary: #CC6F57; /* Terracotta Primary */
+  --primary-hover: #B55B44; /* Darker Terracotta */
+  --primary-glow: rgba(204, 111, 87, 0.2);
+  
+  --light-accent: #F3D7CD; /* Light Peach */
+  --medium-accent: #E3A38F; /* Medium Peach */
+  
+  --text-primary: #3E2723; /* Dark brown charcoal */
+  --text-secondary: #5C4A45; /* Soft brown */
+  --text-muted: #8E7A75;
+  
+  /* Pivot Highlights */
+  --pivot-row-bg: #FDF1EC; /* Peach-orange highlight */
+  --pivot-col-bg: #FCF4F0; /* Soft peach column background */
+  --pivot-element-bg: #F3D7CD; /* High contrast peach */
+  
+  /* Status Alerts */
+  --success: #CC6F57;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --info: #3b82f6;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Rounded Soft Card Panel */
+.glass-panel {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 20px -2px rgba(62, 39, 35, 0.04), 0 2px 8px -1px rgba(62, 39, 35, 0.02);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glass-panel:hover {
+  border-color: var(--panel-border-hover);
+}
+
+.glass-card {
+  background: #FCFAF8;
+  border: 1px solid rgba(62, 39, 35, 0.04);
+  border-radius: 8px;
+  padding: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(204, 111, 87, 0.15);
+}
+
+/* Custom form components */
+input, select {
+  width: 100%;
+  padding: 10px 14px;
+  background: #ffffff;
+  border: 1px solid var(--medium-accent);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 2px 6px rgba(204, 111, 87, 0.25);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--primary-hover);
+  box-shadow: 0 4px 12px rgba(204, 111, 87, 0.35);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: #ffffff;
+  border: 1px solid var(--medium-accent);
+  color: var(--text-secondary);
+}
+
+.btn-secondary:hover {
+  background: #FAF6F4;
+  border-color: var(--primary);
+  color: var(--text-primary);
+}
+
+.btn-danger {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.btn-danger:hover {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FCFAF8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--light-accent);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--medium-accent);
+}
+
+/* Simplex Tableau Style */
+.simplex-table-container {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid var(--light-accent);
+  background: #ffffff;
+  margin-bottom: 20px;
+}
+
+.simplex-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+}
+
+.simplex-table th {
+  background: var(--light-accent);
+  color: var(--text-primary);
+  font-weight: 700;
+  padding: 12px 14px;
+  border-bottom: 1.5px solid var(--medium-accent);
+}
+
+.simplex-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #FAF6F4;
+  color: var(--text-primary);
+}
+
+/* Tableau Row labels */
+.simplex-table td.row-label {
+  font-weight: 700;
+  color: var(--primary);
+  background: #FCFAF8;
+  text-align: left;
+  padding-left: 18px;
+  border-right: 1.5px solid var(--light-accent);
+}
+
+/* Pivot Column Highlight */
+.simplex-table td.pivot-col, 
+.simplex-table th.pivot-col {
+  background-color: var(--pivot-col-bg);
+}
+
+/* Pivot Row Outline Highlight (#FDF1EC with terracotta border) */
+.simplex-table tr.pivot-row td {
+  background-color: var(--pivot-row-bg);
+  border-top: 2px solid var(--primary) !important;
+  border-bottom: 2px solid var(--primary) !important;
+}
+
+.simplex-table tr.pivot-row td:first-child {
+  border-left: 2px solid var(--primary) !important;
+}
+
+.simplex-table tr.pivot-row td:last-child {
+  border-right: 2px solid var(--primary) !important;
+}
+
+/* Pivot Element (intersection of row and col) */
+.simplex-table tr.pivot-row td.pivot-col.pivot-element {
+  background-color: var(--pivot-element-bg) !important;
+  color: var(--primary-hover);
+  font-weight: 800;
+  position: relative;
+}
+
+/* Responsive 3-Column Grid Layout */
+.app-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  max-width: 1560px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Breakpoint for 3 columns on large screen */
+@media (min-width: 1024px) {
+  .app-grid {
+    grid-template-columns: 340px 1fr 340px; /* 3 Columns: Inputs, Summary/Table, Graph/Details */
+    align-items: start;
+    gap: 20px;
+    padding: 24px 20px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .app-grid {
+    grid-template-columns: 380px 1fr 380px; /* More width space on large screen monitors */
+    gap: 24px;
+    padding: 32px;
+  }
+}
+
+.header-bar {
+  max-width: 1560px;
+  margin: 0 auto;
+  padding: 24px 32px 0 32px;
+}
+
+@media (max-width: 1024px) {
+  .header-bar {
+    padding: 24px 24px 0 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .header-bar {
+    padding: 16px 16px 0 16px;
+    text-align: center;
+  }
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-success {
+  background: #FDF1EC;
+  color: var(--primary);
+  border: 1px solid var(--medium-accent);
+}
+
+.badge-danger {
+  background: rgba(239, 68, 68, 0.08);
+  color: #dc2626;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.badge-warning {
+  background: rgba(245, 158, 11, 0.08);
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+/* Nav steps controls style */
+.step-nav-badge {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--primary);
+  background: #FDF1EC;
+  border: 1px solid var(--medium-accent);
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+/* Feasible Region Graph Container */
+.graph-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid var(--panel-border);
+  padding: 16px;
+}
