@@ -10,7 +10,7 @@ app = FastAPI(title="Simplex Method API", version="1.0.0")
 # Setup CORS so the React frontend can call this backend API
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://nama-proyek-frontend-anda.vercel.app"], # In development we can allow all origins
+    allow_origins=["https://metode-simpleks-backend.vercel.app/"], # In development we can allow all origins
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
